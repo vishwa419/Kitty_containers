@@ -1,0 +1,33 @@
+{
+  "version": "1.0",
+  "networks": {
+    "hello-network": {
+      "driver": "bridge",
+      "subnet": "10.0.0.0/24",
+      "gateway": "10.0.0.1"
+    }
+  },
+  "containers": {
+    "hello1": {
+      "image": "./rootfs",
+      "command": ["/bin/bash", "-c", "for i in 1 2 3 4 5; do echo \"[HELLO1] Message $i from 10.0.0.10\"; sleep 1; done"],
+      "hostname": "hello1",
+      "network": "hello-network",
+      "ip": "10.0.0.10"
+    },
+    "hello2": {
+      "image": "./rootfs",
+      "command": ["/bin/bash", "-c", "for i in 1 2 3 4 5; do echo \"[HELLO2] Message $i from 10.0.0.20\"; sleep 1; done"],
+      "hostname": "hello2",
+      "network": "hello-network",
+      "ip": "10.0.0.20"
+    },
+    "hello3": {
+      "image": "./rootfs",
+      "command": ["/bin/bash", "-c", "for i in 1 2 3 4 5; do echo \"[HELLO3] Message $i from 10.0.0.30\"; sleep 1; done"],
+      "hostname": "hello3",
+      "network": "hello-network",
+      "ip": "10.0.0.30"
+    }
+  }
+}

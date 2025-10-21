@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "containers": {
+    "hello": {
+      "image": "./rootfs",
+      "command": ["/bin/bash", "-c", "echo 'Hello from container!' && sleep 10"]
+    }
+  }
+}
